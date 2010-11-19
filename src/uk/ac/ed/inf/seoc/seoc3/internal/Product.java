@@ -43,8 +43,9 @@ public class Product implements uk.ac.ed.inf.seoc.seoc3.external.Product {
 	
 	protected void setIsFrozen(Boolean isFrozen) {
 		this.isFrozen = isFrozen;
-	
 	}
+	
+	protected void setIsFlammable(Boolean isFlammable) {
 		this.isFlammable = isFlammable;
 	}
 	

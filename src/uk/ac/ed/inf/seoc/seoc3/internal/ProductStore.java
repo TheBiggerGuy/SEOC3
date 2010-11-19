@@ -10,7 +10,7 @@ public class ProductStore {
 	
 	private Hashtable<Integer, Product> products = new Hashtable<Integer, Product>();
 	
-	public void addProduct(String name){
+	protected void addProduct(String name){
 		
 		Product newProduct = new Product();
 		newProduct.setName(name);
@@ -22,8 +22,25 @@ public class ProductStore {
 		
 	}
 	
-	public void removeProduct(int id){
-		this.products.remove(id);
+	protected void removeProduct(int id) throws ProductNotFoundException{
+		try{
+			this.products.remove(id);
+		} catch (NullPointerException e) {
+			throw new ProductNotFoundException();
+		}
 	}
+	
+	protected Product getProduct(int id) throws ProductNotFoundException {
+		try{
+			return this.products.get(id);
+		} catch (NullPointerException e) {
+			throw new ProductNotFoundException();
+		}
+	}
+	
+	protected Product updateProduct(int id) throws Exception {
+		throw new Exception("TODO"); // TODO: implment
+	}
+	
 
 }
