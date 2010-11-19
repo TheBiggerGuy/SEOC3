@@ -14,15 +14,10 @@ public interface Product {
 	public String getName();
 	
 	public int getOrderQuantityModulo();
-	
-	public int getPalletLength();
-	public int getPalletHight();
-	public int getPalletWidth();
-	public int getPalletWight();
-	
+
 	public boolean isFragile();
 	public boolean isChilled();
 	public boolean isFrozen();
-	public boolean inFlammable();
+	public boolean isFlammable();
 
 }
