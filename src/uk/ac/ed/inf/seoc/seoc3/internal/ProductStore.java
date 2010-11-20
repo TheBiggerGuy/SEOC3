@@ -2,24 +2,31 @@ package uk.ac.ed.inf.seoc.seoc3.internal;
 
 import java.util.Hashtable;
 
+import uk.ac.ed.inf.seoc.seoc3.external.ProductNotFoundException;
 import uk.ac.ed.inf.seoc.seoc3.internal.Product;
 
 public class ProductStore {
 	
-	private int productCounter = 100;
+	private int productCounter = 99;
 	
 	private Hashtable<Integer, Product> products = new Hashtable<Integer, Product>();
 	
-	protected void addProduct(String name){
+	protected int addProduct(String name) throws Exception{
 		
-		Product newProduct = new Product();
-		newProduct.setName(name);
-		newProduct.setProductID(productCounter);
-		
-		this.products.put(productCounter, newProduct);
+		if(products.containsValue(name))
+			throw new Exception("Product already in store with the same name");
 		
 		productCounter ++;
 		
+		Product newProduct = new Product(productCounter, name);		
+		this.products.put(productCounter, newProduct);
+		
+		return productCounter;
+		
+	}
+	
+	protected int numberOfProducts() {
+		return products.size();
 	}
 	
 	protected void removeProduct(int id) throws ProductNotFoundException{

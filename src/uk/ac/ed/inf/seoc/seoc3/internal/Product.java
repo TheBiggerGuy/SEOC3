@@ -18,6 +18,11 @@ public class Product implements uk.ac.ed.inf.seoc.seoc3.external.Product {
 	private boolean isFrozen;
 	private boolean isFlammable;
 	
+	protected Product(int productId, String name) {
+		this.productID = productId;
+		this.name = name;
+		
+	}	
 	
 	/* All the Setters ***************************************************** */
 	
