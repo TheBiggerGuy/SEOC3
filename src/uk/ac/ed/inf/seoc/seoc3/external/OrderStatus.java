@@ -6,7 +6,8 @@ package uk.ac.ed.inf.seoc.seoc3.external;
 import java.util.Date;
 
 /**
- * @author s0700260
+ * @author s0700260 (Guy Taylor)
+ * @version 0.2
  *
  */
 public interface OrderStatus {
