@@ -13,7 +13,10 @@ public interface Product {
 	/** A unique int that will constatntly represent this product */
 	public int getProductID();
 	
-	/** The name of the product (This may not be unique) */
+	/**
+	    The name of the product (This may not be unique) 
+	    @return @see java.lang.String   The name
+	*/
 	public String getName();
 	
 	/** The quantity of products that an order must be divisable by and also above */
