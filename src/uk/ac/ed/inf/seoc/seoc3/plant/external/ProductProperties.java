@@ -12,6 +12,6 @@ public enum ProductProperties {
 	Fragile,
 	Chilled,
 	Frozen,
-	Flamable;
+	Flammable;
 
 }
