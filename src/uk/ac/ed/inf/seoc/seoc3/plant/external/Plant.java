@@ -7,8 +7,8 @@ import java.util.Date;
 
 /**
  * @author s0700260 (Guy Taylor)
- * @version 0.3
- *
+ * @version 0.9
+ * 
  */
 public interface Plant {
 
@@ -64,7 +64,8 @@ public interface Plant {
 	 * Attempt to cancel a production.
 	 * 
 	 * @param productionID
-	 * @return True if the production was successfully cancelled, False otherwise.
+	 * @return True if the production was successfully cancelled, False
+	 *         otherwise.
 	 * @throws RequestError
 	 *             If the production does not exist
 	 */
@@ -79,6 +80,7 @@ public interface Plant {
 
 	/**
 	 * Generate a report of all the factories and productions
+	 * 
 	 * @return
 	 */
 	public Report getReport();
@@ -86,7 +88,8 @@ public interface Plant {
 	/**
 	 * Add a callback function so other classes can be interrupted on new data.
 	 * 
-	 * @param callback The interface to call
+	 * @param callback
+	 *            The interface to call
 	 */
 	public void registerStatusChangeCallback(Callback callback);
 
