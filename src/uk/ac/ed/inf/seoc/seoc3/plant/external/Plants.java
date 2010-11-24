@@ -10,7 +10,7 @@ import java.util.Date;
  * @version 0.9
  * 
  */
-public interface Plant {
+public interface Plants {
 
 	/**
 	 * @param product
