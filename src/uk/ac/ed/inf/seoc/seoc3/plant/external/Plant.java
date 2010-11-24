@@ -20,7 +20,13 @@ public interface Plant {
 	 *            {@link Product#getProductionQuantityModulo()}
 	 * @return The ID to an OrderStatus
 	 * @throws RequestError
-	 *             This will happen if the product does not exist
+	 *             If the product does not exist
+	 */
+	/**
+	 * @param product
+	 * @param quantity
+	 * @return
+	 * @throws RequestError
 	 */
 	public int requestProduction(Product product, int quantity)
 			throws RequestError;
@@ -39,39 +45,48 @@ public interface Plant {
 	 *            {@link Product#getProductionQuantityModulo()}
 	 * @return The estimated Date and Time that this could be produced on.
 	 * @throws RequestError
-	 *             This will happen if the product does not exist
+	 *             If the product does not exist
 	 */
 	public Date requestProductionEstimate(Product product, int quantity)
 			throws RequestError;
 
 	/**
-	 * Will return the Status of a production.
+	 * Will return the Status of a production
 	 * 
-	 * @param orderStatusID
-	 * @return
+	 * @param productionID
+	 * @return {@link ProductionStatus} for the given ID
 	 * @throws RequestError
+	 *             If the production does not exist
 	 */
-	public ProductionStatus getStatus(int productionStatusID) throws RequestError;
+	public ProductionStatus getStatus(int productionID) throws RequestError;
 
 	/**
-	 * @param orderStatusID
-	 * @return
+	 * Attempt to cancel a production.
+	 * 
+	 * @param productionID
+	 * @return True if the production was successfully cancelled, False otherwise.
 	 * @throws RequestError
+	 *             If the production does not exist
 	 */
-	public boolean requestCancellation(int productionStatusID) throws RequestError;
+	public boolean requestCancellation(int productionID) throws RequestError;
 
 	/**
-	 * @return
+	 * Get a list of all the products that can be produced
+	 * 
+	 * @return A list of all {@link Product}
 	 */
 	public Product[] getAllProducts();
 
 	/**
+	 * Generate a report of all the factories and productions
 	 * @return
 	 */
 	public Report getReport();
 
 	/**
-	 * @param callback
+	 * Add a callback function so other classes can be interrupted on new data.
+	 * 
+	 * @param callback The interface to call
 	 */
 	public void registerStatusChangeCallback(Callback callback);
 
