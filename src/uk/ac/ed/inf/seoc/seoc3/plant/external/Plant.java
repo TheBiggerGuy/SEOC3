@@ -47,7 +47,7 @@ public interface Plant {
 	 * @throws RequestError
 	 *             If the product does not exist
 	 */
-	public Date requestProductionEstimate(Product product, int quantity)
+	public Date estimateProductionTime(Product product, int quantity)
 			throws RequestError;
 
 	/**
@@ -91,6 +91,6 @@ public interface Plant {
 	 * @param callback
 	 *            The interface to call
 	 */
-	public void registerStatusChangeCallback(Callback callback);
+	public void registerCallback(Callback callback);
 
 }
