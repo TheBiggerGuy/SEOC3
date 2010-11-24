@@ -7,12 +7,12 @@ import java.util.Date;
 
 /**
  * @author s0700260 (Guy Taylor)
- * @version 0.2
+ * @version 0.3
  *
  */
 public interface ProductionStatus {
 	
-	public int productionID();
+	public int getID();
 	
 	public Product getProduct();
 	
@@ -22,6 +22,6 @@ public interface ProductionStatus {
 	
 	public Location getLocation();
 	
-	public Date getProductionEstimate();
+	public Date getCurrentEstimate();
 
 }
