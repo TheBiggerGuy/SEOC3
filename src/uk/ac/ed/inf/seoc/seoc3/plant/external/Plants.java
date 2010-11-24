@@ -7,7 +7,7 @@ import java.util.Date;
 
 /**
  * @author s0700260 (Guy Taylor)
- * @version 0.9
+ * @version 1.0
  * 
  */
 public interface Plants {
