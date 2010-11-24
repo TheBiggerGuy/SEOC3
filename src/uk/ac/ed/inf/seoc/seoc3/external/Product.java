@@ -20,10 +20,10 @@ public interface Product {
 	public String getName();
 	
 	/** The quantity of products that an order must be divisable by and also above */
-	public int getOrderQuantityModulo();
+	public int getProductionQuantityModulo();
 	
 	/**
-	    A list of aditinal properties<br />
+	    A list of additional properties<br />
 	    such as:<br/>
 	    <ul>
 	        <li>Fragile</li>
@@ -31,6 +31,7 @@ public interface Product {
 	        <li>Frozen</li>
 	        <li>Flammable</li>
 	    </ul>
+	    @see ProductProperties
 	*/
-    public ArrayList<String> getProperties()
+    public ProductProperties[] getProperties();
 }
