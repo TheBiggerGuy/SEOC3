@@ -45,18 +45,20 @@ public interface Plant {
 			throws RequestError;
 
 	/**
+	 * Will return the Status of a production.
+	 * 
 	 * @param orderStatusID
 	 * @return
 	 * @throws RequestError
 	 */
-	public OrderStatus getStatus(int orderStatusID) throws RequestError;
+	public ProductionStatus getStatus(int productionStatusID) throws RequestError;
 
 	/**
 	 * @param orderStatusID
 	 * @return
 	 * @throws RequestError
 	 */
-	public boolean requestCancellation(int orderStatusID) throws RequestError;
+	public boolean requestCancellation(int productionStatusID) throws RequestError;
 
 	/**
 	 * @return

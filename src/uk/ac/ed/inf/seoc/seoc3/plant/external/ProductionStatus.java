@@ -10,9 +10,9 @@ import java.util.Date;
  * @version 0.2
  *
  */
-public interface OrderStatus {
+public interface ProductionStatus {
 	
-	public int getUID();
+	public int productionID();
 	
 	public Product getProduct();
 	
