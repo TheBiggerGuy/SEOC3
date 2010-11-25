@@ -17,16 +17,10 @@ public interface Plants {
 	 *            The ID of the product to produce
 	 * @param quantity
 	 *            The quantity of the product to produce. The given number x
-	 *            {@link Product#getProductionQuantityModulo()}
+	 *            {@link Product#getProductionQuantityMultiplier()}
 	 * @return The ID to an OrderStatus
 	 * @throws RequestError
 	 *             If the product does not exist
-	 */
-	/**
-	 * @param product
-	 * @param quantity
-	 * @return
-	 * @throws RequestError
 	 */
 	public int requestProduction(Product product, int quantity)
 			throws RequestError;
@@ -35,14 +29,14 @@ public interface Plants {
 	 * Will estimate a date and time that the give product can be produced in
 	 * the given quantity.<br />
 	 * This estimate is a one of, thus if the same information is used I a
-	 * subsequent {@link PlantManager#requestProduction(Product, int)} there is no
+	 * subsequent {@link Plants#requestProduction(Product, int)} there is no
 	 * guarantee it will be equal.
 	 * 
 	 * @param product
 	 *            The ID of the product to produce
 	 * @param quantity
 	 *            The quantity of the product to produce. The given number x
-	 *            {@link Product#getProductionQuantityModulo()}
+	 *            {@link Product#getProductionQuantityMultiplier()}
 	 * @return The estimated Date and Time that this could be produced on.
 	 * @throws RequestError
 	 *             If the product does not exist
@@ -81,7 +75,7 @@ public interface Plants {
 	/**
 	 * Generate a report of all the factories and productions
 	 * 
-	 * @return
+	 * @return The generated report
 	 */
 	public Report getReport();
 
