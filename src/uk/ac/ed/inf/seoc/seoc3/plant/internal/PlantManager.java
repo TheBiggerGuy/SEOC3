@@ -35,7 +35,7 @@ public class PlantManager implements Runnable,
 			try {
 				products.addProduct(product);
 			} catch (Exception e) {
-				log.error("Contructor Exception ("+e.getMessage()+")");
+				log.error("Contructor (add product) Exception ("+e.getMessage()+")");
 			}
 		}
 	}
