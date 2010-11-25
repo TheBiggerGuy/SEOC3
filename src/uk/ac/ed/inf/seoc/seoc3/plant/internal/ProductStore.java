@@ -2,7 +2,6 @@ package uk.ac.ed.inf.seoc.seoc3.plant.internal;
 
 import java.util.Hashtable;
 
-import uk.ac.ed.inf.seoc.seoc3.plant.external.ProductNotFoundException;
 import uk.ac.ed.inf.seoc.seoc3.plant.internal.Product;
 
 public class ProductStore {

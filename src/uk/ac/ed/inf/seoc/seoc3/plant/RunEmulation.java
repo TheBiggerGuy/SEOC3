@@ -4,7 +4,7 @@
 package uk.ac.ed.inf.seoc.seoc3.plant;
 
 import uk.ac.ed.inf.seoc.seoc3.plant.external.Product;
-import uk.ac.ed.inf.seoc.seoc3.plant.internal.Plant;
+import uk.ac.ed.inf.seoc.seoc3.plant.internal.PlantManager;
 import org.apache.log4j.*;
 
 /**
@@ -25,7 +25,7 @@ public class RunEmulation {
 		
 	    log.debug("RunEmulation Starting ... ");
 		
-	    Plant plant = new Plant();
+	    PlantManager plant = new PlantManager();
 		
 		Thread plantThread = new Thread(plant);
 		plantThread.run();

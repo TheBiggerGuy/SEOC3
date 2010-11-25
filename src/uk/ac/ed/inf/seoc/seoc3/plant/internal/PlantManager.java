@@ -18,13 +18,13 @@ import uk.ac.ed.inf.seoc.seoc3.plant.external.RequestError;
  * @author s0700260
  *
  */
-public class Plant implements Runnable,
-		uk.ac.ed.inf.seoc.seoc3.plant.external.Plant {
+public class PlantManager implements Runnable,
+		uk.ac.ed.inf.seoc.seoc3.plant.external.Plants {
 	
 	Logger log;
 	ProductStore products;
 	
-	public Plant(){
+	public PlantManager(){
 		
 		log = Logger.getLogger(RunEmulation.class);
 		log.debug("Plants Contructor");
@@ -91,15 +91,6 @@ public class Plant implements Runnable,
 	}
 
 	/* (non-Javadoc)
-	 * @see uk.ac.ed.inf.seoc.seoc3.plant.external.Plant#registerStatusChangeCallback(uk.ac.ed.inf.seoc.seoc3.plant.external.Callback)
-	 */
-	@Override
-	public void registerStatusChangeCallback(Callback callback) {
-		// TODO Auto-generated method stub
-
-	}
-
-	/* (non-Javadoc)
 	 * @see uk.ac.ed.inf.seoc.seoc3.plant.external.Plant#requestCancellation(int)
 	 */
 	@Override
@@ -117,15 +108,18 @@ public class Plant implements Runnable,
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	/* (non-Javadoc)
-	 * @see uk.ac.ed.inf.seoc.seoc3.plant.external.Plant#requestProductionEstimate(uk.ac.ed.inf.seoc.seoc3.plant.external.Product, int)
-	 */
+	
 	@Override
-	public Date requestProductionEstimate(Product product, int quantity)
+	public Date estimateProductionTime(Product product, int quantity)
 			throws RequestError {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void registerCallback(Callback callback) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

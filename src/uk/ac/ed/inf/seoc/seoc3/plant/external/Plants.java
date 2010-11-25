@@ -35,7 +35,7 @@ public interface Plants {
 	 * Will estimate a date and time that the give product can be produced in
 	 * the given quantity.<br />
 	 * This estimate is a one of, thus if the same information is used I a
-	 * subsequent {@link Plant#requestProduction(Product, int)} there is no
+	 * subsequent {@link PlantManager#requestProduction(Product, int)} there is no
 	 * guarantee it will be equal.
 	 * 
 	 * @param product
