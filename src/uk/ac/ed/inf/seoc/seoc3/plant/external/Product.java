@@ -10,7 +10,7 @@ package uk.ac.ed.inf.seoc.seoc3.plant.external;
  */
 public interface Product {
 	
-	/** A unique int that will constatntly represent this product */
+	/** A unique int that will constatntly represent this product (SKU) */
 	public int getProductID();
 	
 	/**

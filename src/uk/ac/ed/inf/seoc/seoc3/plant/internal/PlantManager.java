@@ -3,6 +3,7 @@
  */
 package uk.ac.ed.inf.seoc.seoc3.plant.internal;
 
+import java.io.File;
 import java.util.Date;
 
 import org.apache.log4j.BasicConfigurator;
@@ -24,6 +25,8 @@ public class PlantManager implements Runnable,
 	Logger log;
 	ProductStore products;
 	
+	private static final String FILE_ROOT = "/afs/inf.ed.ac.uk/user/s07/s0700260/3rdYear/seoc/eclipse/SEOC3/res/";
+	
 	private static final PlantManager singletonPlantManager = new PlantManager();
 	
 	private PlantManager(){
@@ -32,21 +35,20 @@ public class PlantManager implements Runnable,
 		BasicConfigurator.configure();
 		log.debug("Plants Contructor");
 		
-		products = new ProductStore();
-		
-		for(String product: new String[] {"Product 1", "Product 2", "Product 3", "Product 4"}){
-			try {
-				products.addProduct(product);
-			} catch (Exception e) {
-				log.error("Contructor (add product) Exception ("+e.getMessage()+")");
-			}
+		try {
+			products = ProductStore.getProductStore( new File(FILE_ROOT+"SCLS_ProductSpecification.csv") );
+		} catch (Exception e) {
+			log.error("Could not import CSV file");
+			products = ProductStore.getProductStore();
 		}
+
 	}
 	
 	public static PlantManager getPlantManager(){
 		return singletonPlantManager;
 	}
 	
+	/*
 	protected boolean addProduct(String name) {
 		
 		log.debug("Trying add product ("+name+")");
@@ -60,6 +62,7 @@ public class PlantManager implements Runnable,
 		
 		return false;
 	}
+	*/
 
 	/* (non-Javadoc)
 	 * @see java.lang.Runnable#run()
