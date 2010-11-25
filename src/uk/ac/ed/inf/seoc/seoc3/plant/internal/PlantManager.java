@@ -68,8 +68,7 @@ public class PlantManager implements Runnable,
 	 */
 	@Override
 	public Product[] getAllProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		return (Product[]) products.getAllProducts();
 	}
 
 	/* (non-Javadoc)

@@ -11,14 +11,14 @@ import uk.ac.ed.inf.seoc.seoc3.plant.external.ProductProperties;
  * @author guy
  * 
  */
-public class Product implements uk.ac.ed.inf.seoc.seoc3.plant.external.Product {
+public class PlantProduct implements uk.ac.ed.inf.seoc.seoc3.plant.external.Product {
 
 	private int productID;
 	private String name;
 	private int productionQuantityModulo;
 	private ArrayList<ProductProperties> properties;
 
-	protected Product(int productId, String name) {
+	protected PlantProduct(int productId, String name) {
 		this.productID = productId;
 		this.name = name;
 		this.productionQuantityModulo = 1;

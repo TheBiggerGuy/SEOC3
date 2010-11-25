@@ -2,13 +2,13 @@ package uk.ac.ed.inf.seoc.seoc3.plant.internal;
 
 import java.util.Hashtable;
 
-import uk.ac.ed.inf.seoc.seoc3.plant.internal.Product;
+import uk.ac.ed.inf.seoc.seoc3.plant.internal.PlantProduct;
 
 public class ProductStore {
 	
 	private int productCounter = 99;
 	
-	private Hashtable<Integer, Product> products = new Hashtable<Integer, Product>();
+	private Hashtable<Integer, PlantProduct> products = new Hashtable<Integer, PlantProduct>();
 	
 	protected int addProduct(String name) throws Exception{
 		
@@ -17,7 +17,7 @@ public class ProductStore {
 		
 		productCounter ++;
 		
-		Product newProduct = new Product(productCounter, name);		
+		PlantProduct newProduct = new PlantProduct(productCounter, name);		
 		this.products.put(productCounter, newProduct);
 		
 		return productCounter;
@@ -36,7 +36,7 @@ public class ProductStore {
 		}
 	}
 	
-	protected Product getProduct(int id) throws ProductNotFoundException {
+	protected PlantProduct getProduct(int id) throws ProductNotFoundException {
 		try{
 			return this.products.get(id);
 		} catch (NullPointerException e) {
@@ -44,9 +44,12 @@ public class ProductStore {
 		}
 	}
 	
-	protected Product updateProduct(int id) throws Exception {
+	protected PlantProduct updateProduct(int id) throws Exception {
 		throw new Exception("TODO"); // TODO: implment
 	}
 	
+	protected PlantProduct[] getAllProducts() {
+		return (PlantProduct[]) products.values().toArray();
+	}
 
 }
