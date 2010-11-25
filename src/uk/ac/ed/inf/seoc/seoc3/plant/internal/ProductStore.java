@@ -16,13 +16,7 @@ public class ProductStore {
 	}
 	
 	protected int addProduct(String name) throws Exception{
-		
-		/*
-		TODO: fix me
-		if(products.containsValue(name)
-			throw new Exception("Product already in store with the same name");
-		*/
-		
+
 		productIDcounter ++;
 		PlantProduct newProduct = new PlantProduct(productIDcounter, name);		
 		products.put(productIDcounter, newProduct);
@@ -37,11 +31,12 @@ public class ProductStore {
 	
 	protected void removeProduct(int id) throws ProductNotFoundException{
 		try{
-			// TODO: check if product exists
-			products.remove(id);
+			getProduct(id);	// check to see if there is a product to remove
 		} catch (NullPointerException e) {
 			throw new ProductNotFoundException();
 		}
+		
+		products.remove(id);
 	}
 	
 	protected PlantProduct getProduct(int id) throws ProductNotFoundException {
@@ -53,7 +48,7 @@ public class ProductStore {
 		return productGot;
 	}
 	
-	protected PlantProduct updateProduct(int id) throws Exception {
+	protected PlantProduct updateProduct(PlantProduct product) throws Exception {
 		throw new Exception("TODO"); // TODO: implment
 	}
 	
