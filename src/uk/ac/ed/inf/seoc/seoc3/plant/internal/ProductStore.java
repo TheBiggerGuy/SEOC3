@@ -1,7 +1,5 @@
 package uk.ac.ed.inf.seoc.seoc3.plant.internal;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Hashtable;
 
 import uk.ac.ed.inf.seoc.seoc3.plant.internal.PlantProduct;

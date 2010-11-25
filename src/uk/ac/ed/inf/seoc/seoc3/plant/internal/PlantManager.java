@@ -5,9 +5,9 @@ package uk.ac.ed.inf.seoc.seoc3.plant.internal;
 
 import java.util.Date;
 
+import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
-import uk.ac.ed.inf.seoc.seoc3.plant.RunEmulation;
 import uk.ac.ed.inf.seoc.seoc3.plant.external.Callback;
 import uk.ac.ed.inf.seoc.seoc3.plant.external.Product;
 import uk.ac.ed.inf.seoc.seoc3.plant.external.ProductionStatus;
@@ -24,9 +24,12 @@ public class PlantManager implements Runnable,
 	Logger log;
 	ProductStore products;
 	
-	public PlantManager(){
+	private static final PlantManager singletonPlantManager = new PlantManager();
+	
+	private PlantManager(){
 		
-		log = Logger.getLogger(RunEmulation.class);
+		log = Logger.getLogger(PlantManager.class);
+		BasicConfigurator.configure();
 		log.debug("Plants Contructor");
 		
 		products = new ProductStore();
@@ -38,6 +41,10 @@ public class PlantManager implements Runnable,
 				log.error("Contructor (add product) Exception ("+e.getMessage()+")");
 			}
 		}
+	}
+	
+	public static PlantManager getPlantManager(){
+		return singletonPlantManager;
 	}
 	
 	protected boolean addProduct(String name) {

@@ -25,7 +25,7 @@ public class RunEmulation {
 		
 	    log.debug("RunEmulation Starting ... ");
 		
-	    PlantManager plant = new PlantManager();
+	    PlantManager plant = PlantManager.getPlantManager();
 		
 		Thread plantThread = new Thread(plant);
 		plantThread.run();
