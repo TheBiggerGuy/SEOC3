@@ -5,7 +5,7 @@ package uk.ac.ed.inf.seoc.seoc3.plant.external;
 
 /**
  * @author s0700260 (Guy Taylor)
- * @version 0.4
+ * @version 0.5
  *
  */
 public interface Product {
@@ -19,8 +19,8 @@ public interface Product {
 	*/
 	public String getName();
 	
-	/** The quantity of products that an order must be divisable by and also above */
-	public int getProductionQuantityModulo();
+	/** The quantity of a single production unit */
+	public int getProductionQuantityMultiplier();
 	
 	/**
 	    A list of additional properties<br />

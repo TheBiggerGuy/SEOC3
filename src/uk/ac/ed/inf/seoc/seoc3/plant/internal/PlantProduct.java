@@ -15,13 +15,13 @@ public class PlantProduct implements uk.ac.ed.inf.seoc.seoc3.plant.external.Prod
 
 	private int productID;
 	private String name;
-	private int productionQuantityModulo;
+	private int productionQuantityMultiplier;
 	private ArrayList<ProductProperties> properties;
 
 	protected PlantProduct(int productId, String name) {
 		this.productID = productId;
 		this.name = name;
-		this.productionQuantityModulo = 1;
+		this.productionQuantityMultiplier = 1;
 		this.properties = new ArrayList<ProductProperties>();
 	}
 
@@ -35,8 +35,8 @@ public class PlantProduct implements uk.ac.ed.inf.seoc.seoc3.plant.external.Prod
 		this.name = name;
 	}
 
-	protected void setOrderQuantityModulo(int productionQuantityModulo) {
-		this.productionQuantityModulo = productionQuantityModulo;
+	protected void setOrderQuantityModulo(int productionQuantityMultiplier) {
+		this.productionQuantityMultiplier = productionQuantityMultiplier;
 	}
 
 	/* All the Getters ***************************************************** */
@@ -52,8 +52,8 @@ public class PlantProduct implements uk.ac.ed.inf.seoc.seoc3.plant.external.Prod
 	}
 
 	@Override
-	public int getProductionQuantityModulo() {
-		return productionQuantityModulo;
+	public int getProductionQuantityMultiplier() {
+		return productionQuantityMultiplier;
 	}
 
 	@Override
