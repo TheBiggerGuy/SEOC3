@@ -10,7 +10,7 @@ package uk.ac.ed.inf.seoc.seoc3.plant.external;
  */
 public enum ProductionStates {
 	
-	OrderRevived,
+	OrderReceived,
 	
 	OrderAccepted, OrderDenied,
 	
