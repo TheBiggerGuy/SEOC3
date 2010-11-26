@@ -4,6 +4,7 @@
 package uk.ac.ed.inf.seoc.seoc3.plant;
 
 import uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Product;
+import uk.ac.ed.inf.seoc.seoc3.plant.interfaces.RequestError;
 import uk.ac.ed.inf.seoc.seoc3.plant.internal.PlantManager;
 import org.apache.log4j.*;
 
@@ -34,6 +35,13 @@ public class RunEmulation {
 		Product[] products = plant.getAllProducts();
 		for(Product product: products){
 			log.debug("Product: "+product.getName());
+		}
+		
+		try {
+			plant.requestProduction(1043980694, 10);
+			log.debug("requestProduction: YAY");
+		} catch (RequestError e) {
+			log.error("requestProduction FAIL");
 		}
 
 	}

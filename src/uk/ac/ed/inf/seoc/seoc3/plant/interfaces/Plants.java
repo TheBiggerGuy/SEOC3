@@ -22,7 +22,7 @@ public interface Plants {
 	 * @throws RequestError
 	 *             If the product does not exist
 	 */
-	public int requestProduction(Product product, int quantity)
+	public int requestProduction(int productID, int quantity)
 			throws RequestError;
 
 	/**
@@ -41,7 +41,7 @@ public interface Plants {
 	 * @throws RequestError
 	 *             If the product does not exist
 	 */
-	public Date estimateProductionTime(Product product, int quantity)
+	public Date estimateProductionTime(int productID, int quantity)
 			throws RequestError;
 
 	/**

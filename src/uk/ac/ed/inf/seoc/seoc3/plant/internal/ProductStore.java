@@ -35,6 +35,14 @@ public class ProductStore {
 		return products.size();
 	}
 	
+	protected int getProductIDFromName(String name) throws ProductNotFoundException {
+		for(PlantProduct product: getAllProducts()){
+			if(product.getName().equals(name))
+				return product.getProductID();
+		}
+		throw new ProductNotFoundException();
+	}
+	
 	protected void removeProduct(int id) throws ProductNotFoundException{
 		try{
 			getProduct(id);	// check to see if there is a product to remove
@@ -84,6 +92,8 @@ public class ProductStore {
 					int id = Integer.parseInt(tokens[0]);
 					String name = tokens[1];
 					
+					
+					// TODO: check name uniquness
 					if(!products.containsKey(id)){
 						PlantProduct product = new PlantProduct(id, name);
 						products.put(id, product);

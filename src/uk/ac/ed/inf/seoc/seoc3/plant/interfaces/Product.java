@@ -14,7 +14,7 @@ public interface Product {
 	public int getProductID();
 	
 	/**
-	    The name of the product (This may not be unique) 
+	    The name of the product. This WILL be unique.
 	    @return @see java.lang.String   The name
 	*/
 	public String getName();

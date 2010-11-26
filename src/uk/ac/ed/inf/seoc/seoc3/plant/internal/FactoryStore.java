@@ -33,10 +33,14 @@ public class FactoryStore {
 		return factories.size();
 	}
 	
-	protected PlantFactory getFactoryFor(PlantProduct product) throws Exception {
+	protected PlantFactory getFactoryByID(int id){
+		return factories.get(id);
+	}
+	
+	protected PlantFactory getFactoryFor(int productID) throws Exception {
 		
 		for(PlantFactory factory: getAllFactories()){
-			if(factory.doesProduce(product))
+			if(factory.doesProduce(productID))
 				return factory;
 		}
 		

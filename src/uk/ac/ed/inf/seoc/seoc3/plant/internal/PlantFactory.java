@@ -1,5 +1,6 @@
 package uk.ac.ed.inf.seoc.seoc3.plant.internal;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -14,7 +15,9 @@ public class PlantFactory implements Runnable {
 	
 	Thread thread;
 	
-	Queue<Production> productionQueue = new LinkedList<Production>();
+	ArrayList<Integer> producables = new ArrayList<Integer>(5);
+	
+	Queue<PlantProduction> productionQueue = new LinkedList<PlantProduction>();
 	
 	protected PlantFactory(int ID, String name, PlantLocation location){
 		this.id = ID;
@@ -27,9 +30,12 @@ public class PlantFactory implements Runnable {
 		thread.start();
 	}
 	
-	protected boolean doesProduce(PlantProduct product){
-		// TODO:
-		return false;
+	protected void addProduct(int productID){
+		producables.add(productID);
+	}
+	
+	protected boolean doesProduce(int productID){
+		return producables.contains(productID);
 	}
 
 	@Override
@@ -40,11 +46,12 @@ public class PlantFactory implements Runnable {
 			
 			log.debug("Factory "+id+" is checking queue");
 			
-			Production head = productionQueue.peek();
+			PlantProduction head = productionQueue.peek();
 			
-			if(head != null && head.isFinished())
-				productionQueue.poll();
-			
+			if(head != null && head.isFinished()){
+				PlantProduction bob = productionQueue.poll();
+				log.debug("Factory "+id+" has finnided making "+bob.getProduct().getName());
+			}
 			try {
 				Thread.sleep( 60 * 1000 );
 			} catch (InterruptedException e) {
@@ -56,6 +63,10 @@ public class PlantFactory implements Runnable {
 	
 	protected void stop(){
 		thread = null;
+	}
+
+	public void addProduction(PlantProduction production) {
+		productionQueue.add(production);		
 	}
 
 }

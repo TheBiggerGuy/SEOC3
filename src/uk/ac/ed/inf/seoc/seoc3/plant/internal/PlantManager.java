@@ -48,6 +48,38 @@ public class PlantManager implements uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Pl
 			log.error("Could not import CSV file");
 			factories = FactoryStore.getFactoryStore();
 		}
+		
+		try{
+			PlantFactory london = factories.getFactoryByID(811);
+			london.addProduct( products.getProductIDFromName("Ariel"));
+			london.addProduct( products.getProductIDFromName("Pampers"));
+			london.addProduct( products.getProductIDFromName("Febreeze"));
+			
+			PlantFactory manchester = factories.getFactoryByID(812);
+			manchester.addProduct( products.getProductIDFromName("Wella"));
+			manchester.addProduct( products.getProductIDFromName("Clairol"));
+			manchester.addProduct( products.getProductIDFromName("Head & Shoulders"));
+			manchester.addProduct( products.getProductIDFromName("Pantene"));
+			
+			PlantFactory newcastle = factories.getFactoryByID(813);
+			newcastle.addProduct( products.getProductIDFromName("Olay"));
+			newcastle.addProduct( products.getProductIDFromName("Crest"));
+			newcastle.addProduct( products.getProductIDFromName("Vicks"));
+			
+			PlantFactory reading = factories.getFactoryByID(814);
+			reading.addProduct( products.getProductIDFromName("Gillette Mach 3"));
+			reading.addProduct( products.getProductIDFromName("Gillette Fusion"));
+			reading.addProduct( products.getProductIDFromName("Duracell AA Batteries"));
+			
+			PlantFactory seaton = factories.getFactoryByID(815);
+			seaton.addProduct( products.getProductIDFromName("Hugo Boss"));
+			seaton.addProduct( products.getProductIDFromName("Ghost"));
+			seaton.addProduct( products.getProductIDFromName("Lacoste"));
+			seaton.addProduct( products.getProductIDFromName("Max Factor"));
+		
+		} catch (Exception e) {
+			log.error("Could not hand code products to factories");
+		}
 
 	}
 	
@@ -56,7 +88,7 @@ public class PlantManager implements uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Pl
 	}
 
 	@Override
-	public Date estimateProductionTime(Product product, int quantity)
+	public Date estimateProductionTime(int productID, int quantity)
 			throws RequestError {
 		// TODO Auto-generated method stub
 		return null;
@@ -92,10 +124,30 @@ public class PlantManager implements uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Pl
 	}
 
 	@Override
-	public int requestProduction(Product product, int quantity)
+	public int requestProduction(int productID, int quantity)
 			throws RequestError {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		if(quantity < 1)
+			throw new RequestError();
+		
+		try{
+			products.getProduct(productID);
+		} catch (Exception e) {
+			throw new RequestError();
+		}
+		
+		PlantFactory factory;
+		try {
+			factory = factories.getFactoryFor(productID);
+		} catch (Exception e) {
+			throw new RequestError();
+		}
+		
+		PlantProduction production = new PlantProduction(productID, quantity);
+		
+		factory.addProduction(production);
+		
+		return production.getID();
 	}
 	
 	/*
