@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.Hashtable;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 import uk.ac.ed.inf.seoc.seoc3.plant.internal.PlantProduct;
@@ -19,7 +18,6 @@ public class ProductStore {
 	
 	private ProductStore(){
 		log = Logger.getLogger(ProductStore.class);
-		BasicConfigurator.configure();
 		
 		products = new Hashtable<Integer, PlantProduct>(200);
 	}
@@ -69,21 +67,34 @@ public class ProductStore {
 		BufferedReader bufRdr = new BufferedReader(new FileReader(plantLocationFile));
 		
 		String line = null;
+		boolean isFirst = true;
+		boolean isSecond = false;
 		while( (line = bufRdr.readLine()) != null){
 			
-			try{
+			if(isFirst){
+				isFirst = false;
+				isSecond = true;
+			} else if(isSecond){
+				isSecond = false;
+			} else {
 			
-				String[] tokens = line.split(",");
-				int id = Integer.parseInt(tokens[0]);
-				String name = tokens[1];
+				try{
 				
-				if(!products.containsKey(id)){
-					PlantProduct product = new PlantProduct(id, name);
-					products.put(id, product);
+					String[] tokens = line.split(",");
+					int id = Integer.parseInt(tokens[0]);
+					String name = tokens[1];
+					
+					if(!products.containsKey(id)){
+						PlantProduct product = new PlantProduct(id, name);
+						products.put(id, product);
+						
+						log.debug("Add product ("+name+")");
+						
+					}
+				
+				} catch (Exception e) {
+					log.error("Failed to add product");
 				}
-			
-			} catch (Exception e) {
-				log.error("Failed to add product");
 			}
 		}
 		

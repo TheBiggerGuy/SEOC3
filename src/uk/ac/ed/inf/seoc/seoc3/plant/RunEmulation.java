@@ -18,7 +18,7 @@ public class RunEmulation {
 	 */
 	public static void main(String[] args) {
 		
-		Logger log = Logger.getLogger(RunEmulation.class);
+		Logger log = Logger.getLogger("Emulator");
 		
 		// Set up a simple configuration that logs on the console.
 	    BasicConfigurator.configure();
@@ -26,9 +26,6 @@ public class RunEmulation {
 	    log.debug("RunEmulation Starting ... ");
 		
 	    PlantManager plant = PlantManager.getPlantManager();
-		
-		Thread plantThread = new Thread(plant);
-		plantThread.run();
 		
 		log.debug("Plant.java Running ... ");
 		
