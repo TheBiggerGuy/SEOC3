@@ -3,7 +3,7 @@
  */
 package uk.ac.ed.inf.seoc.seoc3.plant.internal;
 
-import uk.ac.ed.inf.seoc.seoc3.plant.external.Location;
+import uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Location;
 
 /**
  * @author s0700260

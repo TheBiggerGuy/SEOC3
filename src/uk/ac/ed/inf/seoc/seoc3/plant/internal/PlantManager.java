@@ -9,17 +9,17 @@ import java.util.Date;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
-import uk.ac.ed.inf.seoc.seoc3.plant.external.Callback;
-import uk.ac.ed.inf.seoc.seoc3.plant.external.Product;
-import uk.ac.ed.inf.seoc.seoc3.plant.external.ProductionStatus;
-import uk.ac.ed.inf.seoc.seoc3.plant.external.Report;
-import uk.ac.ed.inf.seoc.seoc3.plant.external.RequestError;
+import uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Callback;
+import uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Product;
+import uk.ac.ed.inf.seoc.seoc3.plant.interfaces.ProductionStatus;
+import uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Report;
+import uk.ac.ed.inf.seoc.seoc3.plant.interfaces.RequestError;
 
 /**
  * @author s0700260
  *
  */
-public class PlantManager implements uk.ac.ed.inf.seoc.seoc3.plant.external.Plants {
+public class PlantManager implements uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Plants {
 	
 	Logger log;
 	ProductStore products;

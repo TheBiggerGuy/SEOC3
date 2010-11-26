@@ -3,7 +3,7 @@
  */
 package uk.ac.ed.inf.seoc.seoc3.plant;
 
-import uk.ac.ed.inf.seoc.seoc3.plant.external.Product;
+import uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Product;
 import uk.ac.ed.inf.seoc.seoc3.plant.internal.PlantManager;
 import org.apache.log4j.*;
 

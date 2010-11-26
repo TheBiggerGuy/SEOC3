@@ -5,13 +5,13 @@ package uk.ac.ed.inf.seoc.seoc3.plant.internal;
 
 import java.util.ArrayList;
 
-import uk.ac.ed.inf.seoc.seoc3.plant.external.ProductProperties;
+import uk.ac.ed.inf.seoc.seoc3.plant.interfaces.ProductProperties;
 
 /**
  * @author guy
  * 
  */
-public class PlantProduct implements uk.ac.ed.inf.seoc.seoc3.plant.external.Product {
+public class PlantProduct implements uk.ac.ed.inf.seoc.seoc3.plant.interfaces.Product {
 
 	private int productID;
 	private String name;
